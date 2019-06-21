@@ -1,0 +1,91 @@
+import telebot
+import os
+
+
+token = "728087823:AAHHv8Yi5862RuuWtK0ba6kcoDxLq_yHRKI"
+bot = telebot.TeleBot(token)
+
+
+@bot.message_handler(commands=['start'])
+def handle_start(message):
+    user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
+    user_markup.row('Список праздников', 'О боте',)
+    bot.send_message(message.from_user.id, 'Добрый день! С помощью этого бота ты сможешь быть на одной волне со своими родственниками)', reply_markup=user_markup)
+
+
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+    if message.text == 'Список праздников':
+        bot.send_message(message.from_user.id, '0101 - Новый год, 2704 - Пасха, 0701 - Рождество, 3101 - День Рождения русской водки, 1402 - День всех влюбленных, 2302 - День защитника отечества, 0001-  С добрым утром, 0002 - Спокойной ночи')
+
+    if message.text == 'Что делать?':
+        bot.send_message(message.from_user.id, "Выбери праздник из списка и напиши мне его номер. ")
+
+@bot.message_handler(content_types=['text'])
+def handle_text(message):
+
+    if message.text == '2704':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-2704.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+  if message.text == '0101':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-0101.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+  if message.text == '0701':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-0701.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+  if message.text == '3101':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-3101.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+  if message.text == '2302':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-2302.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+  if message.text == '0001':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-0001.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+  if message.text == '0002':
+        directory = '/Users/Savva/Desktop/photos'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open( ' /Users/Savva/Desktop/photos/i-0002.jpg' , 'rb')
+            bot.send_photo(190122885, img)
+            img.close()
+
+
+bot.polling(none_stop=True, interval=0)
