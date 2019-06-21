@@ -9,7 +9,7 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start'])
 def handle_start(message):
     user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
-    user_markup.row('Список праздников', 'О боте',)
+    user_markup.row('Список праздников', 'Как пользоваться',)
     bot.send_message(message.from_user.id, 'Добрый день! С помощью этого бота ты сможешь быть на одной волне со своими родственниками)', reply_markup=user_markup)
 
 
@@ -18,7 +18,7 @@ def handle_text(message):
     if message.text == 'Список праздников':
         bot.send_message(message.from_user.id, '0101 - Новый год, 2704 - Пасха, 0701 - Рождество, 3101 - День Рождения русской водки, 1402 - День всех влюбленных, 2302 - День защитника отечества, 0001-  С добрым утром, 0002 - Спокойной ночи')
 
-    if message.text == 'Что делать?':
+    if message.text == 'Как пользоваться':
         bot.send_message(message.from_user.id, "Выбери праздник из списка и напиши мне его номер. ")
 
 @bot.message_handler(content_types=['text'])
